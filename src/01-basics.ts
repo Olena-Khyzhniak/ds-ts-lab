@@ -1,6 +1,7 @@
 // (Optional) Change the names below to your friends.
 
 
+
 interface Friend {
     name: string;
     phone: string;
@@ -15,6 +16,16 @@ interface Colleague {
         extension: number;
     }
 }
+
+
+interface ColleagueHistory {
+  current: Colleague[],
+  former: Colleague[]
+}
+
+
+
+
 
 
 const friend1: Friend = {
@@ -33,6 +44,10 @@ const friends: Friend[] = [friend1, friend2];
 console.log(friends[1]);
 
 //   -------------------
+
+
+
+
 const colleague1: Colleague= {
   name: "Ralph Graham",
   department: "Engineering",
@@ -59,9 +74,13 @@ const colleague3: Colleague = {
     extension: 125,
   },
 };
-const colleagues: { current: Colleague[]; former: Colleague[] } = {
+
+
+export const colleagues : ColleagueHistory = {
   current: [colleague1, colleague2, colleague3],
   former: [],
 };
+
+
 
 console.log(colleagues.current[0]);
