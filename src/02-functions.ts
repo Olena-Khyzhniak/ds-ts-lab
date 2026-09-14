@@ -2,7 +2,7 @@ import {Friend, Colleague } from './myTypes'
 import { friends } from './01-basics';
 import { colleagues } from './01-basics';
 import { EmailContact } from './myTypes';
-
+import { BuddyList } from './myTypes';
 
 function older(f: Friend) : string {
      f.age += 1
@@ -81,3 +81,14 @@ function findFriends(friends: Friend[], predicate: (f: Friend) => boolean): stri
 
 console.log(findFriends(friends, (friend) => friend.name.startsWith('Pa')));
 console.log(findFriends(friends, (friend) => friend.age < 35));
+
+
+
+function getBuddyListFriends(list: BuddyList): Friend[] {
+  return list.members.reduce((acc: Friend[], buddy) => {
+    if ("age" in buddy) {   
+      acc.push(buddy);
+    }
+    return acc;
+  }, []);
+}
