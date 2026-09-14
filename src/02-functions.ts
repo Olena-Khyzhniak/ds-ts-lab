@@ -92,3 +92,22 @@ function getBuddyListFriends(list: BuddyList): Friend[] {
     return acc;
   }, []);
 }
+
+
+
+
+function sort<T>(items: T[], sorter: (a: T, b: T) => number): T[] {
+  return [...items].sort(sorter);
+}
+
+
+// Sort friends by age
+console.log(sort<Friend>(friends, (a, b) => a.age - b.age));
+// Sort colleagues by extension number
+console.log(
+  sort<Colleague>(
+    colleagues.current,
+    (a, b) => a.contact.extension - b.contact.extension
+  )
+);
+
