@@ -1,4 +1,4 @@
-import {Friend, Colleague } from './myTypes'
+import {Friend, Colleague, EventPass } from './myTypes'
 import { friends } from './01-basics';
 import { colleagues } from './01-basics';
 import { EmailContact } from './myTypes';
@@ -111,3 +111,13 @@ console.log(
   )
 );
 
+
+function generateEventPass(colleague: Colleague): EventPass {
+  const passCode = Math.round(Math.random() * (1000 - 1) + 1);
+  return {
+    name: colleague.name,
+    department: colleague.department,
+    passCode: passCode,
+  };
+}
+console.log(generateEventPass(colleagues.current[0]));
